@@ -45,7 +45,9 @@ button {
 <button onclick="ram()">🧹 Limpar RAM</button>
 <button onclick="fps()">🎮 FPS Estável</button>
 <button onclick="battery()">🔋 Economia</button>
-
+<button onclick="touch()">📱 Touch Booster</button>
+<button onclick="ultramode()">🔥 Ultra Gaming</button>
+  
 <p id="status"></p>
 
 </div>
@@ -80,7 +82,48 @@ navigator.clipboard.writeText(
 document.getElementById("status").innerText="Modo Economia Copiado!";
 }
 
-</script>
+<script>
 
-</body>
-</html>
+function turbo(){
+navigator.clipboard.writeText(
+"cmd power set-fixed-performance-mode-enabled true\nsettings put global window_animation_scale 0\nsettings put global transition_animation_scale 0\nsettings put global animator_duration_scale 0"
+);
+document.getElementById("status").innerText="Modo Turbo Copiado!";
+}
+
+function ram(){
+navigator.clipboard.writeText(
+"cmd activity kill-all"
+);
+document.getElementById("status").innerText="RAM limpa!";
+}
+
+function fps(){
+navigator.clipboard.writeText(
+"settings put system peak_refresh_rate 90.0\nsettings put system min_refresh_rate 90.0"
+);
+document.getElementById("status").innerText="FPS Estável!";
+}
+
+function touch(){
+navigator.clipboard.writeText(
+"settings put system pointer_speed 7"
+);
+document.getElementById("status").innerText="Touch Otimizado!";
+}
+
+function ultramode(){
+navigator.clipboard.writeText(
+"cmd power set-fixed-performance-mode-enabled true\ndumpsys deviceidle disable"
+);
+document.getElementById("status").innerText="Modo Ultra Gaming!";
+}
+
+function battery(){
+navigator.clipboard.writeText(
+"cmd power set-fixed-performance-mode-enabled false"
+);
+document.getElementById("status").innerText="Modo Economia!";
+}
+
+</script>
